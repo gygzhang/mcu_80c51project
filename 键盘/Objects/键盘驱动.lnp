@@ -1,0 +1,5 @@
+".\Objects\keyboard_test.obj",
+".\Objects\key_board.obj",
+".\Objects\led_display.obj" 
+TO ".\Objects\¼üÅÌÇı¶¯" 
+PRINT(".\Listings\¼üÅÌÇı¶¯.m51") RAMSIZE(256) 

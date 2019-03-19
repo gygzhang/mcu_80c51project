@@ -1,0 +1,172 @@
+C51 COMPILER V9.59.0.0   LED_DISPLAY                                                       03/19/2019 19:30:16 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE LED_DISPLAY
+OBJECT MODULE PLACED IN .\Objects\led_display.obj
+COMPILER INVOKED BY: E:\Programs\keil9\C51\BIN\C51.EXE ..\led显示字符\led_display.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJEC
+                    -TEXTEND PRINT(.\Listings\led_display.lst) TABS(2) OBJECT(.\Objects\led_display.obj)
+
+line level    source
+
+   1          /****************************************Copyright (c)****************************************************
+   2          **--------------File Info---------------------------------------------------------------------------------
+   3          ** File name:              led_display.c
+   4          ** Latest modified Date:    2019-03-14
+   5          ** Latest Version:          
+   6          ** Descriptions:            数码管显示，可配置引脚
+   7          **--------------------------------------------------------------------------------------------------------
+   8          ** Created by:              张桂荧
+   9          ** Created date:            2019-03-14
+  10          ** Version:                 
+  11          ** Descriptions:            宏定义与引脚配置，头文件相关
+  12          **--------------------------------------------------------------------------------------------------------
+  13          *********************************************************************************************************/
+  14          
+  15          
+  16          #include "led_display.h"
+  17          
+  18          
+  19          
+  20          //显示字库
+  21          static code unsigned char show_table[][2]={
+  22            {'0',0x3f},{'1',0x06},{'2',0x5b},{'3',0x4f},{'4',0x66},{'5',0x6d},
+  23            {'6',0x7d},{'7',0x07},{'8',0x7f},{'9',0x6f},{'A',0x77},{'B',0x7c},
+  24            {'C',0x39},{'D',0x5e},{'E',0x79},{'F',0x71},{'H',0X76},{'L',0x38},{'Z',0x5b},{'Y',0X6E},{'S',0x6d},{0x00,
+             -0x00}
+  25            };
+  26          
+  27          
+  28          unsigned char led_show_buf[6];
+  29          
+  30          
+  31          void led_close_all(){
+  32   1        LED_DIG1_OFF();
+  33   1        LED_DIG2_OFF();
+  34   1        LED_DIG3_OFF();
+  35   1        LED_DIG4_OFF();
+  36   1        LED_DIG5_OFF();
+  37   1        LED_DIG6_OFF();
+  38   1      }
+  39          
+  40          
+  41          /*********************************************************************************************************
+  42          ** Function name:           led_display_puts
+  43          ** Descriptions:            LED数码管字符输入
+  44          ** input parameters:        char *str
+  45          ** output parameters:       none
+  46          ** Returned value:          成功:0
+  47                                      失败:-1
+  48          *********************************************************************************************************/
+  49          char led_display_puts(char* str){
+  50   1        char i,j;
+  51   1        
+  52   1        if(str==0) return -1;
+  53   1        for(i = 0 ;i<6; i++){ 
+C51 COMPILER V9.59.0.0   LED_DISPLAY                                                       03/19/2019 19:30:16 PAGE 2   
+
+  54   2          if(*str=='.') {
+  55   3            i--;
+  56   3            led_show_buf[i]|=0x80;
+  57   3              
+  58   3          }
+  59   2          else{
+  60   3          for(j=0;show_table[j][0]!=0x00;j++){
+  61   4            if((char)show_table[j][0]==*str){
+  62   5              led_show_buf[i]=show_table[j][1];
+  63   5              break;        
+  64   5            }
+  65   4          } 
+  66   3        }
+  67   2          str++;    
+  68   2        }
+  69   1        return 0;
+  70   1      }
+  71          
+  72          /*********************************************************************************************************
+  73          ** Function name:           led_display_scan
+  74          ** Descriptions:            LED数码管扫描
+  75          ** input parameters:        none
+  76          ** output parameters:       none
+  77          ** Returned value:          none
+  78          *********************************************************************************************************/
+             -  
+  79          void led_display_scan(){
+  80   1        static unsigned char index = 0;
+  81   1        led_close_all();
+  82   1        LED_SEG_DATA(~led_show_buf[index]);
+  83   1        switch(index){
+  84   2          case 0:
+  85   2            LED_DIG1_ON();
+  86   2          break;
+  87   2          
+  88   2          case 1:
+  89   2            LED_DIG2_ON();
+  90   2          break;
+  91   2          
+  92   2          case 2:
+  93   2            LED_DIG3_ON();
+  94   2          break;
+  95   2          
+  96   2          case 3:
+  97   2            LED_DIG4_ON();
+  98   2          break;
+  99   2          
+ 100   2          case 4:
+ 101   2            LED_DIG5_ON();
+ 102   2          break;
+ 103   2          
+ 104   2          case 5:
+ 105   2            LED_DIG6_ON();
+ 106   2          break;
+ 107   2        }
+ 108   1        index++;
+ 109   1        index%=6;
+ 110   1        
+ 111   1      }
+ 112          
+ 113          
+ 114          /*********************************************************************************************************
+C51 COMPILER V9.59.0.0   LED_DISPLAY                                                       03/19/2019 19:30:16 PAGE 3   
+
+ 115          ** Function name:           delay
+ 116          ** Descriptions:            软件延时
+ 117          ** input parameters:        none
+ 118          ** output parameters:       none
+ 119          ** Returned value:          none
+ 120          *********************************************************************************************************/
+             -  
+ 121          void delay(unsigned int num){
+ 122   1        while(num--);
+ 123   1      }
+ 124          
+ 125          /*********************************************************************************************************
+ 126          ** Function name:           led_display_clear
+ 127          ** Descriptions:            LED数码管清0
+ 128          ** input parameters:        none
+ 129          ** output parameters:       none
+ 130          ** Returned value:          成功:0
+ 131                                      失败：未定义
+ 132          *********************************************************************************************************/
+             -  
+ 133          char led_display_clear(){
+ 134   1        memset(led_show_buf,0,6);
+ 135   1        return 0;
+ 136   1      }
+ 137          
+ 138          /*********************************************************************************************************
+ 139            END FILE
+ 140          *********************************************************************************************************/
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    269    ----
+   CONSTANT SIZE    =     44    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      7    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

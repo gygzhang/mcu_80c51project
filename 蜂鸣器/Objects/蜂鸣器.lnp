@@ -1,0 +1,4 @@
+".\Objects\alarm.obj",
+".\Objects\alarm_test.obj" 
+TO ".\Objects\·äÃùÆ÷" 
+PRINT(".\Listings\·äÃùÆ÷.m51") RAMSIZE(256) 

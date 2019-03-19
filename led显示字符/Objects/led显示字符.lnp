@@ -1,0 +1,4 @@
+".\Objects\led_display.obj",
+".\Objects\led_test.obj" 
+TO ".\Objects\ledÏÔÊ¾×Ö·û" 
+PRINT(".\Listings\ledÏÔÊ¾×Ö·û.m51") RAMSIZE(256) 
