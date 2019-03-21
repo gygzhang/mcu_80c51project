@@ -1,10 +1,10 @@
-C51 COMPILER V9.59.0.0   KEY_BOARD                                                         03/21/2019 21:05:12 PAGE 1   
+C51 COMPILER V9.59.0.0   KEY_BOARD                                                         03/21/2019 22:28:49 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE KEY_BOARD
 OBJECT MODULE PLACED IN .\Objects\key_board.obj
-COMPILER INVOKED BY: E:\Programs\keil9\C51\BIN\C51.EXE key_board.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
-                    -istings\key_board.lst) TABS(2) OBJECT(.\Objects\key_board.obj)
+COMPILER INVOKED BY: E:\Programs\keil9\C51\BIN\C51.EXE ..\¼üÅÌ\key_board.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND P
+                    -RINT(.\Listings\key_board.lst) TABS(2) OBJECT(.\Objects\key_board.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52   4            case 7:
   53   4              return '7';
   54   4            break;
-C51 COMPILER V9.59.0.0   KEY_BOARD                                                         03/21/2019 21:05:12 PAGE 2   
+C51 COMPILER V9.59.0.0   KEY_BOARD                                                         03/21/2019 22:28:49 PAGE 2   
 
   55   4            
   56   4            case 8:
@@ -93,15 +93,16 @@ line level    source
   81   1      }
   82          
   83          void key_shake_eliminate(){
-  84   1        int tmp = 921*3;
+  84   1        int tmp = 930*3;
   85   1        while(tmp--){
-  86   2          led_display_scan();
-  87   2        }
-  88   1      }
-  89          
-  90          /*void delay(int t){
-  91            while(--t);
-  92          }*/
+  86   2          //if(tmp%2==)
+  87   2          led_display_scan();
+  88   2        }
+  89   1      }
+  90          
+  91          /*void delay(int t){
+  92            while(--t);
+  93          }*/
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

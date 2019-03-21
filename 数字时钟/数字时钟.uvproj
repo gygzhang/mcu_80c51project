@@ -401,6 +401,11 @@
               <FileType>1</FileType>
               <FilePath>..\led显示字符\led_display.c</FilePath>
             </File>
+            <File>
+              <FileName>key_board.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\键盘\key_board.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

@@ -11,12 +11,31 @@
 ** Descriptions:            数码管显示时间测试
 **--------------------------------------------------------------------------------------------------------
 *********************************************************************************************************/
-
+int key_count=0;
 #include"time_clock.h"
 
 
 int main(){
-	display_time(20,30,00);		
+	char key[7],temp_key;
+	char _h,_m,_s;
+	display_time(20,59,55);		
+	while(1){
+		key[key_count]=get_key();
+		key_shake_eliminate();
+		if(key[key_count]!=-1){
+			key_count++;
+			//temp_key=get_key();
+			//key_shake_eliminate();
+			if(key_count==6) break;
+			key_count%=6;
+		}				
+		led_display_puts(key);
+		led_display_scan();
+	}
+	_h=(key[0]-30)*10+key[1]-30;
+	_m=(key[2]-30)*10+key[3]-30;
+	_s=(key[4]-30)*10+key[5]-30;
+	display_time(_h,_m,_s-2);
 	
 }
 /*********************************************************************************************************

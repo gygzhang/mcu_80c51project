@@ -1,6 +1,7 @@
 ".\Objects\time_clock.obj",
 ".\Objects\time_clock_test.obj",
-".\Objects\led_display.obj" 
+".\Objects\led_display.obj",
+".\Objects\key_board.obj" 
 TO ".\Objects\数字时钟" 
 PRINT(".\Listings\数字时钟.m51") RAMSIZE(256) 
 CODE( 0X0000-0X3FFF )

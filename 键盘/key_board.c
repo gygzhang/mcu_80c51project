@@ -7,7 +7,7 @@ char get_key(){
 	P3=0xf0;
 	if(P3!=0xf0){
 	//消除抖动
-	delay(93*150);
+	key_shake_eliminate();
 	//确实有键按下了
 	if(P3!=0xF0){
 		//行用做输入，列作为输出
@@ -24,11 +24,7 @@ char get_key(){
 		
 		ret = row*3+col;		
 		//根据ret得到数字对应的字符串
-		switch(ret){
-			case 11:
-				return '0';
-			break;
-			
+		switch(ret){			
 			case 1:
 				return '1';
 			break;
@@ -63,13 +59,33 @@ char get_key(){
 			
 			case 9:
 				return '9';
-			break;		
+			break;
+
+			case 10:
+				return -2;
+			break;
+			
+			case 11:
+				return '0';
+			break;
+			
+			case 12:
+				return -3;
+			break;
 		}
 	}
 }
 	return -1;
 	
 	
+}
+
+void key_shake_eliminate(){
+	int tmp = 930*3;
+	while(tmp--){
+		//if(tmp%2==)
+		led_display_scan();
+	}
 }
 
 /*void delay(int t){
