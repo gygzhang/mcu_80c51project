@@ -4,7 +4,7 @@
 
 int main(){
 	while(1){
-		buzz_by_frequency(1000);
+		buzz_by_frequency(50);
 		delay100us(10*2000);
 	}
 	return 0;

@@ -21,7 +21,8 @@
 static code unsigned char show_table[][2]={
 	{'0',0x3f},{'1',0x06},{'2',0x5b},{'3',0x4f},{'4',0x66},{'5',0x6d},
 	{'6',0x7d},{'7',0x07},{'8',0x7f},{'9',0x6f},{'A',0x77},{'B',0x7c},
-	{'C',0x39},{'D',0x5e},{'E',0x79},{'F',0x71},{'H',0X76},{'L',0x38},{'Z',0x5b},{'Y',0X6E},{'S',0x6d},{0x00,0x00}
+	{'C',0x39},{'D',0x5e},{'E',0x79},{'F',0x71},{'H',0X76},{'L',0x38},
+	{'Z',0x5b},{'Y',0X6E},{'S',0x6d},{0x00,0x00}
 	};
 
 
@@ -49,7 +50,7 @@ void led_close_all(){
 char led_display_puts(char* str){
 	char i,j;
 	
-	if(str==0) return -1;
+	//if(str==0) return -1;
 	for(i = 0 ;i<6; i++){	
 		if(*str=='.') {
 			i--;
