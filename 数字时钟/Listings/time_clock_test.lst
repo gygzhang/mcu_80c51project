@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   TIME_CLOCK_TEST                                                   03/21/2019 22:28:49 PAGE 1   
+C51 COMPILER V9.59.0.0   TIME_CLOCK_TEST                                                   03/24/2019 19:59:46 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE TIME_CLOCK_TEST
@@ -27,44 +27,46 @@ line level    source
   17          
   18          int main(){
   19   1        char key[7],temp_key;
-  20   1        char _h,_m,_s;
-  21   1        display_time(20,59,55);   
-  22   1        while(1){
-  23   2          key[key_count]=get_key();
-*** WARNING C206 IN LINE 23 OF time_clock_test.c: 'get_key': missing function-prototype
-  24   2          key_shake_eliminate();
-*** WARNING C206 IN LINE 24 OF time_clock_test.c: 'key_shake_eliminate': missing function-prototype
-  25   2          if(key[key_count]!=-1){
-  26   3            key_count++;
-  27   3            //temp_key=get_key();
-  28   3            //key_shake_eliminate();
-  29   3            if(key_count==6) break;
-  30   3            key_count%=6;
-  31   3          }       
-  32   2          led_display_puts(key);
-  33   2          led_display_scan();
-  34   2        }
-  35   1        _h=(key[0]-30)*10+key[1]-30;
-  36   1        _m=(key[2]-30)*10+key[3]-30;
-  37   1        _s=(key[4]-30)*10+key[5]-30;
-  38   1        display_time(_h,_m,_s-2);
-  39   1        
-  40   1      }
+  20   1        int _h,_m,_s;
+  21   1        P0=0X11;
+  22   1        //delay(100000000);
+  23   1        display_time(20,59,55);   
+  24   1        while(1){
+  25   2          key[key_count]=get_key();
+*** WARNING C206 IN LINE 25 OF time_clock_test.c: 'get_key': missing function-prototype
+  26   2          key_shake_eliminate();
+*** WARNING C206 IN LINE 26 OF time_clock_test.c: 'key_shake_eliminate': missing function-prototype
+  27   2          if(key[key_count]!=-1){
+  28   3            key_count++;
+  29   3            //temp_key=get_key();
+  30   3            //key_shake_eliminate();
+  31   3            if(key_count==6) break;
+  32   3            key_count%=6;
+  33   3          }       
+  34   2          led_display_puts(key);
+  35   2          led_display_scan();
+  36   2        }
+  37   1        _h=(key[0]-'0')*10+key[1]-'0';
+  38   1        _m=(key[2]-'0')*10+key[3]-'0';
+  39   1        _s=(key[4]-'0')*10+key[5]-'0';
+  40   1        display_time(_h,_m,_s);
+  41   1        
+  42   1      }
 *** WARNING C280 IN LINE 19 OF time_clock_test.c: 'temp_key': unreferenced local variable
-  41          /*********************************************************************************************************
-  42            END FILE
-  43          *********************************************************************************************************/
-*** WARNING C290 IN LINE 40 OF time_clock_test.c: missing return value
+  43          /*********************************************************************************************************
+  44            END FILE
+  45          *********************************************************************************************************/
+*** WARNING C290 IN LINE 42 OF time_clock_test.c: missing return value
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    122    ----
+   CODE SIZE        =    200    ----
    CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.59.0.0   TIME_CLOCK_TEST                                                   03/24/2019 19:59:46 PAGE 2   
+
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-C51 COMPILER V9.59.0.0   TIME_CLOCK_TEST                                                   03/21/2019 22:28:49 PAGE 2   
-
-   DATA SIZE        =      2       8
+   DATA SIZE        =      2      10
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

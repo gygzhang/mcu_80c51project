@@ -1,0 +1,132 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/23/2019  21:30:19  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+E:\PROGRAMS\KEIL9\C51\BIN\BL51.EXE .\Objects\11.obj TO .\Objects\111 PRINT (.\Listings\111.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\11.obj (11)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\111 (11)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     003CH     UNIT         ?PR?MAIN?11
+            CODE    003FH     0014H     UNIT         ?PR?_DELAY100US?11
+            CODE    0053H     000DH     UNIT         ?PR?LED_CLOSE_ALL?11
+            CODE    0060H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\111 (11)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?11
+
+?PR?MAIN?11
+  +--> ?PR?_DELAY100US?11
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\111 (11)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        11
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:0043H         PUBLIC        _delay100us
+  B:00A0H.0       PUBLIC        P2_0
+  B:00A0H.1       PUBLIC        P2_1
+  B:00A0H.2       PUBLIC        P2_2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/23/2019  21:30:19  PAGE 2
+
+
+  B:00A0H.3       PUBLIC        P2_3
+  B:00A0H.4       PUBLIC        P2_4
+  B:00A0H.5       PUBLIC        P2_5
+  C:0003H         PUBLIC        main
+  C:0053H         PUBLIC        led_close_all
+  -------         PROC          LED_CLOSE_ALL
+  C:0053H         LINE#         42
+  C:0053H         LINE#         43
+  C:0055H         LINE#         44
+  C:0057H         LINE#         45
+  C:0059H         LINE#         46
+  C:005BH         LINE#         47
+  C:005DH         LINE#         48
+  C:005FH         LINE#         49
+  -------         ENDPROC       LED_CLOSE_ALL
+  C:003FH         SYMBOL        L?0014
+  -------         PROC          L?0013
+  -------         ENDPROC       L?0013
+  C:003FH         SYMBOL        L?0014
+  -------         PROC          _DELAY100US
+  D:0006H         SYMBOL        uiDly
+  -------         DO            
+  D:0005H         SYMBOL        i
+  -------         ENDDO         
+  C:0043H         LINE#         57
+  C:0043H         LINE#         58
+  C:0043H         LINE#         61
+  C:0043H         LINE#         63
+  C:0045H         LINE#         64
+  C:0045H         LINE#         65
+  C:0049H         LINE#         66
+  C:0052H         LINE#         67
+  -------         ENDPROC       _DELAY100US
+  -------         PROC          MAIN
+  C:0003H         LINE#         75
+  C:0003H         LINE#         76
+  C:0003H         LINE#         77
+  C:0003H         LINE#         78
+  C:0003H         LINE#         83
+  C:0006H         LINE#         84
+  C:0009H         LINE#         85
+  C:0010H         LINE#         89
+  C:0013H         LINE#         90
+  C:0016H         LINE#         91
+  C:0019H         LINE#         95
+  C:001CH         LINE#         96
+  C:001FH         LINE#         97
+  C:0022H         LINE#         102
+  C:0025H         LINE#         103
+  C:0028H         LINE#         104
+  C:002BH         LINE#         108
+  C:002EH         LINE#         109
+  C:0031H         LINE#         110
+  C:0034H         LINE#         114
+  C:0037H         LINE#         115
+  C:003AH         LINE#         116
+  C:003DH         LINE#         121
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/23/2019  21:30:19  PAGE 3
+
+
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        11
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_CLOSE_ALL?11
+
+Program Size: data=9.0 xdata=0 code=108
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

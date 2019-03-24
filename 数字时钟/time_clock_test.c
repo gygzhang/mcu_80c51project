@@ -17,7 +17,9 @@ int key_count=0;
 
 int main(){
 	char key[7],temp_key;
-	char _h,_m,_s;
+	int _h,_m,_s;
+	P0=0X11;
+	//delay(100000000);
 	display_time(20,59,55);		
 	while(1){
 		key[key_count]=get_key();
@@ -32,10 +34,10 @@ int main(){
 		led_display_puts(key);
 		led_display_scan();
 	}
-	_h=(key[0]-30)*10+key[1]-30;
-	_m=(key[2]-30)*10+key[3]-30;
-	_s=(key[4]-30)*10+key[5]-30;
-	display_time(_h,_m,_s-2);
+	_h=(key[0]-'0')*10+key[1]-'0';
+	_m=(key[2]-'0')*10+key[3]-'0';
+	_s=(key[4]-'0')*10+key[5]-'0';
+	display_time(_h,_m,_s);
 	
 }
 /*********************************************************************************************************

@@ -1,0 +1,150 @@
+C51 COMPILER V9.59.0.0   KEY                                                               03/24/2019 21:51:56 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\Objects\key.obj
+COMPILER INVOKED BY: E:\Programs\keil9\C51\BIN\C51.EXE ..\..\..\..\..\..\Desktop\项目一\项目一\keyboard_drive\key.c OPTI
+                    -MIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\key.lst) TABS(2) OBJECT(.\Objects\key.obj)
+
+line level    source
+
+   1          /*****************************************Copyright(c)****************************************************
+             -**
+   2          **    学校：              成都信息工程大学
+   3          **    学号：               2017051218
+   4          **    姓名：                  邓维晨
+   5          **
+   6          **----------------------------File Info-------------------------------------------------------------------
+             --
+   7          ** File name:                   key.c
+   8          ** Latest modified Date:        2019-03-23
+   9          ** Latest Version:              1.0
+  10          ** Descriptions:                键盘驱动驱动配置文件
+  11          **
+  12          **--------------------------------------------------------------------------------------------------------
+  13          ** Created by:                  邓维晨
+  14          ** Created date:                2019-03-22
+  15          ** Version:                     1.0
+  16          ** Descriptions:              The original version
+  17          **
+  18          **--------------------------------------------------------------------------------------------------------
+  19          ** Modified by:
+  20          ** Modified date:
+  21          ** Version:
+  22          ** Descriptions:
+  23          **
+  24          *********************************************************************************************************/
+  25          #include<8051.h>
+*** WARNING C318 IN LINE 25 OF ..\..\..\..\..\..\Desktop\项目一\项目一\keyboard_drive\key.c: can't open file '8051.h'
+  26          #include".\key.h"
+  27          #include".\key_cfg.h"
+*** WARNING C318 IN LINE 25 OF ..\..\..\..\..\..\Desktop\项目一\项目一\keyboard_drive\.\key_cfg.h: can't open file '8051
+             -.h'
+  28          
+  29          /*********************************************************************************************************
+  30          ** Function name:             dwckeyInit
+  31          ** Descriptions:              键盘模块初始化
+  32          ** input parameters:        none
+  33          ** output parameters:       none
+  34          ** Returned value:            0:  成功
+  35          **                              -1: 失败
+  36          *********************************************************************************************************/
+  37          char dwcKeyInit(void)
+  38          {
+  39   1        return 0;
+  40   1      }
+  41          
+  42          void delay100us(unsigned int uiDly)
+  43          {
+  44   1        unsigned char i;
+  45   1        
+  46   1        do{
+  47   2          
+  48   2          /*
+  49   2          * 延时约100us,计算方法：查看反汇编，根据指令周期计算
+C51 COMPILER V9.59.0.0   KEY                                                               03/24/2019 21:51:56 PAGE 2   
+
+  50   2          */
+  51   2          i=46;
+  52   2          do{
+  53   3            
+  54   3          }while(--i!=0);
+  55   2        }while(--uiDly!=0);
+  56   1      }
+  57          
+  58          char dwcKeyGet(void)
+  59          {
+  60   1        unsigned char uckeynum;
+  61   1        while(1){
+  62   2        /*
+  63   2        * 线反转扫描法
+  64   2        */
+  65   2        /*行置1，列置0*/
+  66   2        /*__DWC_KEY_KC1_PIN=0;
+  67   2        __DWC_KEY_KC2_PIN=0;
+  68   2        __DWC_KEY_KC3_PIN=0;
+  69   2        
+  70   2        __DWC_KEY_KR1_PIN=1;
+  71   2        __DWC_KEY_KR2_PIN=1;
+  72   2        __DWC_KEY_KR3_PIN=1;
+  73   2        __DWC_KEY_KR4_PIN=1;*/
+  74   2      
+  75   2        if (__DWC_KEY_SUM_PIN!=0xf0){
+*** ERROR C202 IN LINE 75 OF ..\..\..\..\..\..\Desktop\项目一\项目一\keyboard_drive\key.c: 'P3': undefined identifier
+  76   3            __DWC_KEY_SUM_PIN=0xf0;
+*** ERROR C202 IN LINE 76 OF ..\..\..\..\..\..\Desktop\项目一\项目一\keyboard_drive\key.c: 'P3': undefined identifier
+  77   3            
+  78   3            switch (__DWC_KEY_SUM_PIN){
+*** ERROR C202 IN LINE 78 OF ..\..\..\..\..\..\Desktop\项目一\项目一\keyboard_drive\key.c: 'P3': undefined identifier
+  79   4            case(0xe0):
+  80   4              uckeynum=0;
+  81   4              //P0=__GucSeg[uckeynum-1];
+  82   4              //P2=__GucCom[uckeynum-1];
+  83   4              break;
+  84   4            case(0xd0):
+  85   4              uckeynum=1;
+  86   4              //P0=__GucSeg[uckeynum-1];
+  87   4              //P2=__GucCom[uckeynum-1];
+  88   4              break;
+  89   4            case(0xb0):
+  90   4              uckeynum=2;
+  91   4              //P0=__GucSeg[uckeynum-1];
+  92   4              //P2=__GucCom[uckeynum-1];
+  93   4              break;
+  94   4            }
+  95   3            
+  96   3            __DWC_KEY_SUM_PIN=0x8f;
+*** ERROR C202 IN LINE 96 OF ..\..\..\..\..\..\Desktop\项目一\项目一\keyboard_drive\key.c: 'P3': undefined identifier
+  97   3            switch (__DWC_KEY_SUM_PIN){
+*** ERROR C202 IN LINE 97 OF ..\..\..\..\..\..\Desktop\项目一\项目一\keyboard_drive\key.c: 'P3': undefined identifier
+  98   4            case(0x8e):
+  99   4              uckeynum+=0;
+ 100   4              //P0=__GucSeg[uckeynum-1];
+ 101   4              //P2=__GucCom[uckeynum-1];
+ 102   4              break;
+ 103   4            case(0x8d):
+ 104   4              uckeynum+=3;
+ 105   4              //P0=__GucSeg[uckeynum-1];
+ 106   4              //P2=__GucCom[uckeynum-1];
+C51 COMPILER V9.59.0.0   KEY                                                               03/24/2019 21:51:56 PAGE 3   
+
+ 107   4              break;
+ 108   4            case(0x8b):
+ 109   4              uckeynum+=6;
+ 110   4              //P0=__GucSeg[uckeynum-1];
+ 111   4              //P2=__GucCom[uckeynum-7];
+ 112   4              break;
+ 113   4            case(0x87):
+ 114   4              uckeynum+=9;
+ 115   4              //P0=__GucSeg[uckeynum-1];
+ 116   4              //P2=__GucCom[uckeynum-7];
+ 117   4              break;
+ 118   4            }
+ 119   3            //delay100us(10);
+ 120   3            return uckeynum;
+ 121   3          }
+ 122   2        }
+ 123   1      }
+ 124          
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  5 ERROR(S)

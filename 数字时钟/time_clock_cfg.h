@@ -13,10 +13,16 @@
 *********************************************************************************************************/
 #include<reg51.h>
 
+//#define P3 KEY_BOARD
+
+
+
 extern code char* arrhour[24];
 extern code char* arrminute[60];
 extern code char* arrsecond[60];
 extern int count;
+
+
 
 /*********************************************************************************************************
   END FILE

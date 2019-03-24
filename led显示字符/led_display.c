@@ -79,8 +79,9 @@ char led_display_puts(char* str){
 *********************************************************************************************************/	
 void led_display_scan(){
 	static unsigned char index = 0;
+	
 	led_close_all();
-	LED_SEG_DATA(~led_show_buf[index]);
+	LED_SEG_DATA(~led_show_buf[index]);	
 	switch(index){
 		case 0:
 			LED_DIG1_ON();
@@ -106,6 +107,7 @@ void led_display_scan(){
 			LED_DIG6_ON();
 		break;
 	}
+	
 	index++;
 	index%=6;
 	

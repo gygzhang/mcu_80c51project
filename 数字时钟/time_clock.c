@@ -14,16 +14,21 @@
 
 #include"time_clock.h"
 #include"C:\Users\CreaQi\OneDrive\文档\课程\单片机\uVision_Project\键盘\key_board.h"
+//储存小时
+code char* arr_hour[24]={"0","1","2","3","4","5","6","7","8","9","10",\
+												"11","12","13","14","15","16","17","18","19",
+											"20","21","22","23"};
 
-code char* arrhour[24]={"0","1","2","3","4","5","6","7","8","9","10",\
-"11","12","13","14","15","16","17","18","19","20","21","22","23"};
-code char* arrminute[60]={	"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", \
+//储存分钟
+code char* arr_minute[60]={	"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", \
 										"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", \
 										"21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31",\ 
 										"32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", \
 										"43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", \
 										"54", "55", "56", "57", "58", "59"};
-code char* arrsecond[60]={	"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", \
+
+//储存秒数
+code char* arr_second[60]={	"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", \
 										"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",\ 
 										"21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", \
 										"32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42",\ 
@@ -41,24 +46,30 @@ int count=0;
 ** Returned value:          none
 *********************************************************************************************************/										
 void display_time(char h, char m, char s){
-	char buf[9],k;
-	concat(buf,arrhour[h],arrminute[m],arrsecond[s]);
-	//concat(buf,"12","30","25");	
-	led_display_puts(buf);
-			//运行一次大约执行31条指令（不考虑进入if）
-			//有的指令周期为1，有的为2，我们取平均值1.5
-			//1.5*31=46.5,   46.5*21500约等于10^6，也就是1s
+	char buf[9]={0},k;
+	//将传入的时分秒连接到buf中
+	concat(buf,arr_hour[h],arr_minute[m],arr_second[s]);
+	//调用数码管驱动的api
+	led_display_puts(buf);		
 			while(1){				
 				led_display_scan();	
+				//检测按键
 				k = get_key();
 				key_shake_eliminate();
-				if(k==-2) break;				
+				//-2相当于'*'键
+				if(k==-2) break;
+				//每一次循环都将count加1				
 				count++;
+				//等于7说明时间为1s
 				if(count==7){
 					count=0;										
 					s++;
+					//关闭led灯
+					P1=0XFF;
 					if(s==60){
 						s=0;
+						//当秒数达到0开启数码管
+						P1=0x0;
 						m++;
 						if(m==60){
 							h++;
@@ -66,44 +77,15 @@ void display_time(char h, char m, char s){
 							h=0;						
 						}
 					}
-				concat(buf,arrhour[h],arrminute[m],arrsecond[s]);
+				concat(buf,arr_hour[h],arr_minute[m],arr_second[s]);
+				//将得到的时间更新显示
 				led_display_puts(buf);
 			}
 		}
 
 }
 
-/*void display_time1(char *bf){
-	char buf[9],k;
-	//concat(buf,arrhour[h],arrminute[m],arrsecond[s]);
-	//concat(buf,"12","30","25");	
-	led_display_puts(bf);
-			//运行一次大约执行31条指令（不考虑进入if）
-			//有的指令周期为1，有的为2，我们取平均值1.5
-			//1.5*31=46.5,   46.5*21500约等于10^6，也就是1s
-			while(1){				
-				led_display_scan();	
-				k = get_key();
-				key_shake_eliminate();
-				if(k==-2) break;				
-				count++;
-				if(count==7){
-					count=0;										
-					s++;
-					if(s==60){
-						s=0;
-						m++;
-						if(m==60){
-							h++;
-							if(h==24)
-							h=0;						
-						}
-					}
-				concat(buf,arrhour[h],arrminute[m],arrsecond[s]);
-				led_display_puts(buf);
-			}
-		}
-}*/
+
 
 
 /*********************************************************************************************************
@@ -125,10 +107,7 @@ void concat(char buf[9],char *h,char *m, char *s){
 	buf[8] = '\0';
 }
 
-void set_time(){
-	
 
-}
 										
 /*********************************************************************************************************
   END FILE
