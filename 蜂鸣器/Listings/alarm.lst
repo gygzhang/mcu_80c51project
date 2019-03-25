@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   ALARM                                                             03/19/2019 19:43:44 PAGE 1   
+C51 COMPILER V9.59.0.0   ALARM                                                             03/25/2019 17:20:26 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE ALARM
@@ -23,26 +23,28 @@ line level    source
   13          void buzz_by_frequency(int freq){
   14   1        char i;
   15   1        float t = 1.0/freq;
-  16   1        for(i=0;i<3000;i++){
-  17   2          BUZZER_PIN=~BUZZER_PIN;
+  16   1        for(i=0;i<30;i++){
+  17   2          BUZZER_PIN=0;
   18   2          delay100us(t*10000/2);
-  19   2        }
-  20   1      }
-  21          
-  22          void delay1ms(int t0){
-  23   1        int t = t0*921;
-  24   1        while(t--);
-  25   1      }
-  26          
-  27          void delay100us(float t1){
-*** WARNING C235 IN LINE 27 OF alarm.c: parameter 1: different types
-  28   1        int t = (int)t1*93;
-  29   1        while(t--);
-  30   1      }
+  19   2          BUZZER_PIN=1;
+  20   2          delay100us(t*10000/2);
+  21   2        }
+  22   1      }
+  23          
+  24          void delay1ms(int t0){
+  25   1        int t = t0*921;
+  26   1        while(t--);
+  27   1      }
+  28          
+  29          void delay100us(float t1){
+*** WARNING C235 IN LINE 29 OF alarm.c: parameter 1: different types
+  30   1        int t = (int)t1*93;
+  31   1        while(t--);
+  32   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    165    ----
+   CODE SIZE        =    170    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

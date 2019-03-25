@@ -18,16 +18,14 @@ int key_count=0;
 int main(){
 	char key[7],temp_key;
 	int _h,_m,_s;
-	P0=0X11;
-	//delay(100000000);
 	display_time(20,59,55);		
 	while(1){
 		key[key_count]=get_key();
 		key_shake_eliminate();
 		if(key[key_count]!=-1){
 			key_count++;
-			//temp_key=get_key();
-			//key_shake_eliminate();
+			temp_key=get_key();
+			key_shake_eliminate();
 			if(key_count==6) break;
 			key_count%=6;
 		}				

@@ -50,7 +50,8 @@ void display_time(char h, char m, char s){
 	//将传入的时分秒连接到buf中
 	concat(buf,arr_hour[h],arr_minute[m],arr_second[s]);
 	//调用数码管驱动的api
-	led_display_puts(buf);		
+	led_display_puts(buf);	
+	
 			while(1){				
 				led_display_scan();	
 				//检测按键

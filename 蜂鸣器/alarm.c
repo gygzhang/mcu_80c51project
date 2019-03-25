@@ -13,8 +13,10 @@ void buzz(){
 void buzz_by_frequency(int freq){
 	char i;
 	float t = 1.0/freq;
-	for(i=0;i<3000;i++){
-		BUZZER_PIN=~BUZZER_PIN;
+	for(i=0;i<30;i++){
+		BUZZER_PIN=0;
+		delay100us(t*10000/2);
+		BUZZER_PIN=1;
 		delay100us(t*10000/2);
 	}
 }

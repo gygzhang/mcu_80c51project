@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/21/2019  21:05:13  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/25/2019  19:58:12  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -29,25 +29,25 @@ LINK MAP OF MODULE:  .\Objects\¼üÅÌÇý¶¯ (KEYBOARD_TEST)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     000AH     UNIT         _DATA_GROUP_
-            DATA    0012H     0007H     UNIT         ?DT?LED_DISPLAY
-            DATA    0019H     0002H     UNIT         ?DT?KEYBOARD_TEST
-            IDATA   001BH     0001H     UNIT         ?STACK
+            DATA    0008H     000BH     UNIT         _DATA_GROUP_
+            DATA    0013H     0007H     UNIT         ?DT?LED_DISPLAY
+            DATA    001AH     0002H     UNIT         ?DT?KEYBOARD_TEST
+            IDATA   001CH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
             CODE    0003H     00D0H     UNIT         ?C?LIB_CODE
-            CODE    00D3H     00B6H     UNIT         ?PR?GET_KEY?KEY_BOARD
-            CODE    0189H     0099H     UNIT         ?PR?_LED_DISPLAY_PUTS?LED_DISPLAY
-            CODE    0222H     008CH     UNIT         ?C_C51STARTUP
-            CODE    02AEH     0044H     UNIT         ?PR?MAIN?KEYBOARD_TEST
-            CODE    02F2H     0043H     UNIT         ?PR?LED_DISPLAY_SCAN?LED_DISPLAY
-            CODE    0335H     002CH     UNIT         ?CO?LED_DISPLAY
-            CODE    0361H     0019H     UNIT         ?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD
-            CODE    037AH     0012H     UNIT         ?PR?LED_DISPLAY_CLEAR?LED_DISPLAY
-            CODE    038CH     000DH     UNIT         ?PR?LED_CLOSE_ALL?LED_DISPLAY
-            CODE    0399H     000BH     UNIT         ?PR?_DELAY?LED_DISPLAY
-            CODE    03A4H     0008H     UNIT         ?C_INITSEG
+            CODE    00D3H     0099H     UNIT         ?PR?_LED_DISPLAY_PUTS?LED_DISPLAY
+            CODE    016CH     008CH     UNIT         ?C_C51STARTUP
+            CODE    01F8H     008BH     UNIT         ?PR?GET_KEY?KEY_BOARD
+            CODE    0283H     0044H     UNIT         ?PR?MAIN?KEYBOARD_TEST
+            CODE    02C7H     0043H     UNIT         ?PR?LED_DISPLAY_SCAN?LED_DISPLAY
+            CODE    030AH     002CH     UNIT         ?CO?LED_DISPLAY
+            CODE    0336H     0019H     UNIT         ?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD
+            CODE    034FH     0012H     UNIT         ?PR?LED_DISPLAY_CLEAR?LED_DISPLAY
+            CODE    0361H     000DH     UNIT         ?PR?LED_CLOSE_ALL?LED_DISPLAY
+            CODE    036EH     000BH     UNIT         ?PR?_DELAY?LED_DISPLAY
+            CODE    0379H     0008H     UNIT         ?C_INITSEG
 
 
 
@@ -59,7 +59,7 @@ SEGMENT                                     DATA_GROUP
 ---------------------------------------------------------
 ?C_C51STARTUP                             -----    -----
   +--> ?PR?MAIN?KEYBOARD_TEST
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/21/2019  21:05:13  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/25/2019  19:58:12  PAGE 2
 
 
   +--> ?C_INITSEG
@@ -70,10 +70,10 @@ SEGMENT                                     DATA_GROUP
   +--> ?PR?_LED_DISPLAY_PUTS?LED_DISPLAY
   +--> ?PR?LED_DISPLAY_SCAN?LED_DISPLAY
 
-?PR?GET_KEY?KEY_BOARD                     000EH    0002H
+?PR?GET_KEY?KEY_BOARD                     000EH    0003H
   +--> ?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD
 
-?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD         0010H    0002H
+?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD         0011H    0002H
   +--> ?PR?LED_DISPLAY_SCAN?LED_DISPLAY
 
 ?PR?LED_DISPLAY_SCAN?LED_DISPLAY          -----    -----
@@ -92,117 +92,84 @@ SYMBOL TABLE OF MODULE:  .\Objects\¼üÅÌÇý¶¯ (KEYBOARD_TEST)
   -------         MODULE        KEYBOARD_TEST
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:00A0H         PUBLIC        P2
-  C:02AEH         PUBLIC        main
-  D:0019H         PUBLIC        count
+  C:0283H         PUBLIC        main
+  D:001AH         PUBLIC        count
   -------         PROC          MAIN
   -------         DO            
   D:0008H         SYMBOL        key
+  D:000DH         SYMBOL        tmp_key
   -------         ENDDO         
-  C:02AEH         LINE#         6
-  C:02AEH         LINE#         9
-  C:02AEH         LINE#         10
-  C:02B8H         LINE#         11
-  C:02BBH         LINE#         12
-  C:02CEH         LINE#         13
-  C:02D6H         LINE#         14
-  C:02E4H         LINE#         15
-  C:02E4H         LINE#         16
-  C:02EDH         LINE#         17
-  C:02F0H         LINE#         18
+  C:0283H         LINE#         6
+  C:0283H         LINE#         10
+  C:0283H         LINE#         11
+  C:028DH         LINE#         12
+  C:0290H         LINE#         13
+  C:02A3H         LINE#         14
+  C:02A3H         LINE#         16
+  C:02ABH         LINE#         17
+  C:02B9H         LINE#         18
+  C:02B9H         LINE#         20
+  C:02C2H         LINE#         21
+  C:02C5H         LINE#         22
   -------         ENDPROC       MAIN
   -------         ENDMOD        KEYBOARD_TEST
 
   -------         MODULE        KEY_BOARD
   C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00B0H.6       PUBLIC        L3
   D:00A0H         PUBLIC        P2
   B:00B0H.0       PUBLIC        R1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/25/2019  19:58:12  PAGE 3
+
+
   D:00B0H         PUBLIC        P3
   B:00B0H.1       PUBLIC        R2
   B:00B0H.2       PUBLIC        R3
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/21/2019  21:05:13  PAGE 3
-
-
-  C:0361H         PUBLIC        key_shake_eliminate
-  C:00D3H         PUBLIC        get_key
+  B:00B0H.3       PUBLIC        R4
+  C:0336H         PUBLIC        key_shake_eliminate
+  C:01F8H         PUBLIC        get_key
   B:00B0H.4       PUBLIC        L1
   B:00B0H.5       PUBLIC        L2
   -------         PROC          GET_KEY
   -------         DO            
   D:000EH         SYMBOL        row
   D:000FH         SYMBOL        col
-  D:0007H         SYMBOL        ret
+  D:0010H         SYMBOL        ret
   -------         ENDDO         
-  C:00D3H         LINE#         4
-  C:00D3H         LINE#         7
-  C:00D6H         LINE#         8
-  C:00E0H         LINE#         10
-  C:00E3H         LINE#         12
-  C:00EDH         LINE#         14
-  C:00F0H         LINE#         15
-  C:00F8H         LINE#         16
-  C:0100H         LINE#         17
-  C:0103H         LINE#         19
-  C:0106H         LINE#         20
-  C:010EH         LINE#         21
-  C:0116H         LINE#         22
-  C:011EH         LINE#         23
-  C:0121H         LINE#         25
-  C:012AH         LINE#         27
-  C:0162H         LINE#         28
-  C:0162H         LINE#         29
-  C:0165H         LINE#         30
-  C:0165H         LINE#         32
-  C:0165H         LINE#         33
-  C:0168H         LINE#         34
-  C:0168H         LINE#         36
-  C:0168H         LINE#         37
-  C:016BH         LINE#         38
-  C:016BH         LINE#         40
-  C:016BH         LINE#         41
-  C:016EH         LINE#         42
-  C:016EH         LINE#         44
-  C:016EH         LINE#         45
-  C:0171H         LINE#         46
-  C:0171H         LINE#         48
-  C:0171H         LINE#         49
-  C:0174H         LINE#         50
-  C:0174H         LINE#         52
-  C:0174H         LINE#         53
-  C:0177H         LINE#         54
-  C:0177H         LINE#         56
-  C:0177H         LINE#         57
-  C:017AH         LINE#         58
-  C:017AH         LINE#         60
-  C:017AH         LINE#         61
-  C:017DH         LINE#         62
-  C:017DH         LINE#         64
-  C:017DH         LINE#         65
-  C:0180H         LINE#         66
-  C:0180H         LINE#         68
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/21/2019  21:05:13  PAGE 4
-
-
-  C:0180H         LINE#         69
-  C:0183H         LINE#         70
-  C:0183H         LINE#         72
-  C:0183H         LINE#         73
-  C:0186H         LINE#         74
-  C:0186H         LINE#         75
-  C:0186H         LINE#         76
-  C:0186H         LINE#         77
-  C:0186H         LINE#         78
-  C:0188H         LINE#         81
+  C:01F8H         LINE#         4
+  C:01F8H         LINE#         5
+  C:01FBH         LINE#         7
+  C:01FEH         LINE#         8
+  C:0205H         LINE#         10
+  C:0208H         LINE#         12
+  C:020FH         LINE#         14
+  C:0212H         LINE#         15
+  C:021AH         LINE#         16
+  C:0222H         LINE#         17
+  C:0228H         LINE#         19
+  C:022BH         LINE#         20
+  C:0233H         LINE#         21
+  C:023BH         LINE#         22
+  C:0243H         LINE#         23
+  C:0249H         LINE#         25
+  C:0253H         LINE#         26
+  C:0261H         LINE#         27
+  C:026AH         LINE#         28
+  C:027AH         LINE#         30
+  C:0280H         LINE#         84
+  C:0280H         LINE#         88
+  C:0282H         LINE#         89
   -------         ENDPROC       GET_KEY
   -------         PROC          KEY_SHAKE_ELIMINATE
   -------         DO            
-  D:0010H         SYMBOL        tmp
+  D:0011H         SYMBOL        tmp
   -------         ENDDO         
-  C:0361H         LINE#         83
-  C:0361H         LINE#         84
-  C:0367H         LINE#         85
-  C:0374H         LINE#         86
-  C:0377H         LINE#         87
-  C:0379H         LINE#         88
+  C:0336H         LINE#         91
+  C:0336H         LINE#         92
+  C:033CH         LINE#         93
+  C:0349H         LINE#         95
+  C:034CH         LINE#         96
+  C:034EH         LINE#         97
   -------         ENDPROC       KEY_SHAKE_ELIMINATE
   -------         ENDMOD        KEY_BOARD
 
@@ -210,28 +177,31 @@ SYMBOL TABLE OF MODULE:  .\Objects\¼üÅÌÇý¶¯ (KEYBOARD_TEST)
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0080H         PUBLIC        P0
   D:00A0H         PUBLIC        P2
-  C:0399H         PUBLIC        _delay
+  C:036EH         PUBLIC        _delay
   B:00A0H.0       PUBLIC        P2_0
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/25/2019  19:58:12  PAGE 4
+
+
   B:00A0H.1       PUBLIC        P2_1
   B:00A0H.2       PUBLIC        P2_2
   B:00A0H.3       PUBLIC        P2_3
   B:00A0H.4       PUBLIC        P2_4
   B:00A0H.5       PUBLIC        P2_5
-  C:02F2H         PUBLIC        led_display_scan
-  C:0335H         SYMBOL        show_table
-  C:0189H         PUBLIC        _led_display_puts
-  C:038CH         PUBLIC        led_close_all
-  D:0013H         PUBLIC        led_show_buf
-  C:037AH         PUBLIC        led_display_clear
+  C:02C7H         PUBLIC        led_display_scan
+  C:030AH         SYMBOL        show_table
+  C:00D3H         PUBLIC        _led_display_puts
+  C:0361H         PUBLIC        led_close_all
+  D:0014H         PUBLIC        led_show_buf
+  C:034FH         PUBLIC        led_display_clear
   -------         PROC          LED_CLOSE_ALL
-  C:038CH         LINE#         32
-  C:038CH         LINE#         33
-  C:038EH         LINE#         34
-  C:0390H         LINE#         35
-  C:0392H         LINE#         36
-  C:0394H         LINE#         37
-  C:0396H         LINE#         38
-  C:0398H         LINE#         39
+  C:0361H         LINE#         32
+  C:0361H         LINE#         33
+  C:0363H         LINE#         34
+  C:0365H         LINE#         35
+  C:0367H         LINE#         36
+  C:0369H         LINE#         37
+  C:036BH         LINE#         38
+  C:036DH         LINE#         39
   -------         ENDPROC       LED_CLOSE_ALL
   -------         PROC          _LED_DISPLAY_PUTS
   D:0001H         SYMBOL        str
@@ -239,73 +209,70 @@ SYMBOL TABLE OF MODULE:  .\Objects\¼üÅÌÇý¶¯ (KEYBOARD_TEST)
   D:0005H         SYMBOL        i
   D:0004H         SYMBOL        j
   -------         ENDDO         
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/21/2019  21:05:13  PAGE 5
-
-
-  C:0189H         LINE#         50
-  C:0189H         LINE#         54
-  C:019FH         LINE#         55
-  C:01A5H         LINE#         56
-  C:01A6H         LINE#         57
-  C:01AEH         LINE#         59
-  C:01B0H         LINE#         60
-  C:01B0H         LINE#         61
-  C:01CDH         LINE#         62
-  C:01EFH         LINE#         63
-  C:020FH         LINE#         64
-  C:0211H         LINE#         65
-  C:0211H         LINE#         66
-  C:0214H         LINE#         67
-  C:0214H         LINE#         68
-  C:021BH         LINE#         69
-  C:021FH         LINE#         70
-  C:0221H         LINE#         71
+  C:00D3H         LINE#         50
+  C:00D3H         LINE#         54
+  C:00E9H         LINE#         55
+  C:00EFH         LINE#         56
+  C:00F0H         LINE#         57
+  C:00F8H         LINE#         59
+  C:00FAH         LINE#         60
+  C:00FAH         LINE#         61
+  C:0117H         LINE#         62
+  C:0139H         LINE#         63
+  C:0159H         LINE#         64
+  C:015BH         LINE#         65
+  C:015BH         LINE#         66
+  C:015EH         LINE#         67
+  C:015EH         LINE#         68
+  C:0165H         LINE#         69
+  C:0169H         LINE#         70
+  C:016BH         LINE#         71
   -------         ENDPROC       _LED_DISPLAY_PUTS
   -------         PROC          LED_DISPLAY_SCAN
   -------         DO            
-  D:0012H         SYMBOL        index
+  D:0013H         SYMBOL        index
   -------         ENDDO         
-  C:02F2H         LINE#         80
-  C:02F2H         LINE#         82
-  C:02F5H         LINE#         83
-  C:02FEH         LINE#         84
-  C:0313H         LINE#         85
-  C:0313H         LINE#         86
-  C:0315H         LINE#         87
-  C:0317H         LINE#         89
-  C:0317H         LINE#         90
-  C:0319H         LINE#         91
-  C:031BH         LINE#         93
-  C:031BH         LINE#         94
-  C:031DH         LINE#         95
-  C:031FH         LINE#         97
-  C:031FH         LINE#         98
-  C:0321H         LINE#         99
-  C:0323H         LINE#         101
-  C:0323H         LINE#         102
-  C:0325H         LINE#         103
-  C:0327H         LINE#         105
-  C:0327H         LINE#         106
-  C:0329H         LINE#         107
-  C:0329H         LINE#         108
-  C:0329H         LINE#         109
-  C:032BH         LINE#         110
-  C:0334H         LINE#         112
+  C:02C7H         LINE#         80
+  C:02C7H         LINE#         83
+  C:02CAH         LINE#         84
+  C:02D3H         LINE#         85
+  C:02E8H         LINE#         86
+  C:02E8H         LINE#         87
+  C:02EAH         LINE#         88
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/25/2019  19:58:12  PAGE 5
+
+
+  C:02ECH         LINE#         90
+  C:02ECH         LINE#         91
+  C:02EEH         LINE#         92
+  C:02F0H         LINE#         94
+  C:02F0H         LINE#         95
+  C:02F2H         LINE#         96
+  C:02F4H         LINE#         98
+  C:02F4H         LINE#         99
+  C:02F6H         LINE#         100
+  C:02F8H         LINE#         102
+  C:02F8H         LINE#         103
+  C:02FAH         LINE#         104
+  C:02FCH         LINE#         106
+  C:02FCH         LINE#         107
+  C:02FEH         LINE#         108
+  C:02FEH         LINE#         109
+  C:02FEH         LINE#         111
+  C:0300H         LINE#         112
+  C:0309H         LINE#         114
   -------         ENDPROC       LED_DISPLAY_SCAN
   -------         PROC          _DELAY
   D:0006H         SYMBOL        num
-  C:0399H         LINE#         122
-  C:0399H         LINE#         123
-  C:03A3H         LINE#         124
+  C:036EH         LINE#         124
+  C:036EH         LINE#         125
+  C:0378H         LINE#         126
   -------         ENDPROC       _DELAY
   -------         PROC          LED_DISPLAY_CLEAR
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/21/2019  21:05:13  PAGE 6
-
-
-  C:037AH         LINE#         134
-  C:037AH         LINE#         135
-  C:0389H         LINE#         136
-  C:038BH         LINE#         137
+  C:034FH         LINE#         136
+  C:034FH         LINE#         137
+  C:035EH         LINE#         138
+  C:0360H         LINE#         139
   -------         ENDPROC       LED_DISPLAY_CLEAR
   -------         ENDMOD        LED_DISPLAY
 
@@ -331,5 +298,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\¼üÅÌÇý¶¯ (KEYBOARD_TEST)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?LED_DISPLAY_CLEAR?LED_DISPLAY
 
-Program Size: data=28.0 xdata=0 code=940
+Program Size: data=29.0 xdata=0 code=897
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/25/2019  19:58:12  PAGE 6
+
+
 LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
