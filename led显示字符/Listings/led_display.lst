@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   LED_DISPLAY                                                       03/25/2019 17:24:15 PAGE 1   
+C51 COMPILER V9.59.0.0   LED_DISPLAY                                                       03/26/2019 23:01:38 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE LED_DISPLAY
@@ -28,7 +28,7 @@ line level    source
   18          
   19          
   20          //ÏÔÊ¾×Ö¿â
-  21          static code unsigned char show_table[][2]={
+  21          unsigned char show_table[][2]={
   22            {'0',0x3f},{'1',0x06},{'2',0x5b},{'3',0x4f},{'4',0x66},{'5',0x6d},
   23            {'6',0x7d},{'7',0x07},{'8',0x7f},{'9',0x6f},{'A',0x77},{'B',0x7c},
   24            {'C',0x39},{'D',0x5e},{'E',0x79},{'F',0x71},{'H',0X76},{'L',0x38},
@@ -62,7 +62,7 @@ line level    source
   52   1        
   53   1        //if(str==0) return -1;
   54   1        for(i = 0 ;i<6; i++){ 
-C51 COMPILER V9.59.0.0   LED_DISPLAY                                                       03/25/2019 17:24:15 PAGE 2   
+C51 COMPILER V9.59.0.0   LED_DISPLAY                                                       03/26/2019 23:01:38 PAGE 2   
 
   55   2          if(*str=='.') {
   56   3            i--;
@@ -126,7 +126,7 @@ line level    source
  113   1        
  114   1      }
  115          
-C51 COMPILER V9.59.0.0   LED_DISPLAY                                                       03/25/2019 17:24:15 PAGE 3   
+C51 COMPILER V9.59.0.0   LED_DISPLAY                                                       03/26/2019 23:01:38 PAGE 3   
 
  116          
  117          /*********************************************************************************************************
@@ -161,11 +161,11 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    262    ----
-   CONSTANT SIZE    =     44    ----
+   CODE SIZE        =    202    ----
+   CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      7    ----
+   DATA SIZE        =     51    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

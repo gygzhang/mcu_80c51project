@@ -57,7 +57,8 @@ extern char led_display_clear();
 extern void delay(unsigned int num);	
 	
 extern unsigned char led_show_buf[6];
-	
+
+extern unsigned char show_table[][2];
 
 	
 #ifdef __cplusplus

@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   KEY_BOARD                                                         03/25/2019 19:58:12 PAGE 1   
+C51 COMPILER V9.59.0.0   KEY_BOARD                                                         03/28/2019 22:48:21 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE KEY_BOARD
@@ -36,7 +36,7 @@ line level    source
   26   3          if(ret==11) return '0';
   27   3          else if(ret==10) return -2;
   28   3          else if(ret==12) return -3;
-  29   3          else
+  29   3          else //if(ret>0&&ret<11)
   30   3          return ret+'0';
   31   3          //根据ret得到数字对应的字符串
   32   3          /*switch(ret){      
@@ -62,7 +62,7 @@ line level    source
   52   3            
   53   3            case 6:
   54   3              return '6';
-C51 COMPILER V9.59.0.0   KEY_BOARD                                                         03/25/2019 19:58:12 PAGE 2   
+C51 COMPILER V9.59.0.0   KEY_BOARD                                                         03/28/2019 22:48:21 PAGE 2   
 
   55   3            break;
   56   3            
@@ -97,20 +97,21 @@ line level    source
   85   2        //return -1;
   86   2        
   87   2        
-  88   2      }return -1;
-  89   1        }
-  90          
-  91          void key_shake_eliminate(){
-  92   1        int tmp = 930*3;
-  93   1        while(tmp--){
-  94   2          //if(tmp%2==)
-  95   2          led_display_scan();
-  96   2        }
-  97   1      }
-  98          
-  99          /*void delay(int t){
- 100            while(--t);
- 101          }*/
+  88   2      }
+  89   1        return -1;
+  90   1      }
+  91          
+  92          void key_shake_eliminate(){
+  93   1        int tmp = 930*3;
+  94   1        while(tmp--){
+  95   2          //if(tmp%2==)
+  96   2          led_display_scan();
+  97   2        }
+  98   1      }
+  99          
+ 100          /*void delay(int t){
+ 101            while(--t);
+ 102          }*/
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

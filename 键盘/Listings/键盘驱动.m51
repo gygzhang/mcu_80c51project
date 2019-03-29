@@ -1,21 +1,30 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/25/2019  19:58:12  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/28/2019  22:48:21  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
-E:\PROGRAMS\KEIL9\C51\BIN\BL51.EXE .\Objects\keyboard_test.obj, .\Objects\key_board.obj, .\Objects\led_display.obj TO .\
->> Objects\¼üÅÌÇý¶¯ PRINT (.\Listings\¼üÅÌÇý¶¯.m51) RAMSIZE (256)
+E:\PROGRAMS\KEIL9\C51\BIN\BL51.EXE .\Objects\keyboard_test.obj, .\Objects\key_board.obj, .\Objects\alarm.obj, .\Objects\
+>> led_display.obj TO .\Objects\¼üÅÌÇý¶¯ PRINT (.\Listings\¼üÅÌÇý¶¯.m51) RAMSIZE (256)
 
 
-MEMORY MODEL: SMALL
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
 
 
 INPUT MODULES INCLUDED:
   .\Objects\keyboard_test.obj (KEYBOARD_TEST)
   .\Objects\key_board.obj (KEY_BOARD)
+  .\Objects\alarm.obj (ALARM)
   .\Objects\led_display.obj (LED_DISPLAY)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51FPS.LIB (?C?FCAST)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51FPS.LIB (?C?CASTF)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
   E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?COPY)
   E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?CLDPTR)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?IMUL)
   E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?SIDIV)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?LNEG)
   E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?MEMSET)
   E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C_INIT)
   E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?UIDIV)
@@ -29,25 +38,34 @@ LINK MAP OF MODULE:  .\Objects\¼üÅÌÇý¶¯ (KEYBOARD_TEST)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     000BH     UNIT         _DATA_GROUP_
-            DATA    0013H     0007H     UNIT         ?DT?LED_DISPLAY
-            DATA    001AH     0002H     UNIT         ?DT?KEYBOARD_TEST
-            IDATA   001CH     0001H     UNIT         ?STACK
+            DATA    0008H     0033H     UNIT         ?DT?LED_DISPLAY
+            DATA    003BH     000AH     UNIT         _DATA_GROUP_
+            DATA    0045H     0005H     UNIT         ?DT?_BUZZ_BY_FREQUENCY?ALARM
+            DATA    004AH     0002H     UNIT         ?DT?KEYBOARD_TEST
+            DATA    004CH     0001H     UNIT         ?DT?BUZZ?ALARM
+            IDATA   004DH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-            CODE    0003H     00D0H     UNIT         ?C?LIB_CODE
-            CODE    00D3H     0099H     UNIT         ?PR?_LED_DISPLAY_PUTS?LED_DISPLAY
-            CODE    016CH     008CH     UNIT         ?C_C51STARTUP
-            CODE    01F8H     008BH     UNIT         ?PR?GET_KEY?KEY_BOARD
-            CODE    0283H     0044H     UNIT         ?PR?MAIN?KEYBOARD_TEST
-            CODE    02C7H     0043H     UNIT         ?PR?LED_DISPLAY_SCAN?LED_DISPLAY
-            CODE    030AH     002CH     UNIT         ?CO?LED_DISPLAY
-            CODE    0336H     0019H     UNIT         ?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD
-            CODE    034FH     0012H     UNIT         ?PR?LED_DISPLAY_CLEAR?LED_DISPLAY
-            CODE    0361H     000DH     UNIT         ?PR?LED_CLOSE_ALL?LED_DISPLAY
-            CODE    036EH     000BH     UNIT         ?PR?_DELAY?LED_DISPLAY
-            CODE    0379H     0008H     UNIT         ?C_INITSEG
+            CODE    0003H     044BH     UNIT         ?C?LIB_CODE
+            CODE    044EH     008CH     UNIT         ?C_C51STARTUP
+            CODE    04DAH     008BH     UNIT         ?PR?GET_KEY?KEY_BOARD
+            CODE    0565H     005DH     UNIT         ?PR?_LED_DISPLAY_PUTS?LED_DISPLAY
+            CODE    05C2H     0057H     UNIT         ?PR?MAIN?KEYBOARD_TEST
+            CODE    0619H     0046H     UNIT         ?PR?_BUZZ_BY_FREQUENCY?ALARM
+            CODE    065FH     0043H     UNIT         ?PR?LED_DISPLAY_SCAN?LED_DISPLAY
+            CODE    06A2H     0037H     UNIT         ?C_INITSEG
+            CODE    06D9H     0034H     UNIT         ?PR?_DELAY100US?ALARM
+            CODE    070DH     001EH     UNIT         ?PR?BUZZ?ALARM
+            CODE    072BH     0019H     UNIT         ?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD
+            CODE    0744H     0012H     UNIT         ?PR?_DELAY1MS?ALARM
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/28/2019  22:48:21  PAGE 2
+
+
+            CODE    0756H     0012H     UNIT         ?PR?LED_DISPLAY_CLEAR?LED_DISPLAY
+            CODE    0768H     000DH     UNIT         ?PR?LED_CLOSE_ALL?LED_DISPLAY
+            CODE    0775H     000BH     UNIT         ?PR?_DELAY?LED_DISPLAY
+            CODE    0780H     0005H     UNIT         ?CO?KEYBOARD_TEST
 
 
 
@@ -59,28 +77,23 @@ SEGMENT                                     DATA_GROUP
 ---------------------------------------------------------
 ?C_C51STARTUP                             -----    -----
   +--> ?PR?MAIN?KEYBOARD_TEST
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/25/2019  19:58:12  PAGE 2
-
-
   +--> ?C_INITSEG
 
-?PR?MAIN?KEYBOARD_TEST                    0008H    0006H
+?PR?MAIN?KEYBOARD_TEST                    003BH    0005H
+  +--> ?CO?KEYBOARD_TEST
   +--> ?PR?GET_KEY?KEY_BOARD
   +--> ?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD
   +--> ?PR?_LED_DISPLAY_PUTS?LED_DISPLAY
   +--> ?PR?LED_DISPLAY_SCAN?LED_DISPLAY
 
-?PR?GET_KEY?KEY_BOARD                     000EH    0003H
+?PR?GET_KEY?KEY_BOARD                     0040H    0003H
   +--> ?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD
 
-?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD         0011H    0002H
+?PR?KEY_SHAKE_ELIMINATE?KEY_BOARD         0043H    0002H
   +--> ?PR?LED_DISPLAY_SCAN?LED_DISPLAY
 
 ?PR?LED_DISPLAY_SCAN?LED_DISPLAY          -----    -----
   +--> ?PR?LED_CLOSE_ALL?LED_DISPLAY
-
-?PR?_LED_DISPLAY_PUTS?LED_DISPLAY         -----    -----
-  +--> ?CO?LED_DISPLAY
 
 
 
@@ -92,25 +105,29 @@ SYMBOL TABLE OF MODULE:  .\Objects\¼üÅÌÇý¶¯ (KEYBOARD_TEST)
   -------         MODULE        KEYBOARD_TEST
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:00A0H         PUBLIC        P2
-  C:0283H         PUBLIC        main
-  D:001AH         PUBLIC        count
+  C:05C2H         PUBLIC        main
+  D:004AH         PUBLIC        count
+  C:0780H         SYMBOL        _?ix1000
   -------         PROC          MAIN
   -------         DO            
-  D:0008H         SYMBOL        key
-  D:000DH         SYMBOL        tmp_key
+  D:003BH         SYMBOL        key
   -------         ENDDO         
-  C:0283H         LINE#         6
-  C:0283H         LINE#         10
-  C:0283H         LINE#         11
-  C:028DH         LINE#         12
-  C:0290H         LINE#         13
-  C:02A3H         LINE#         14
-  C:02A3H         LINE#         16
-  C:02ABH         LINE#         17
-  C:02B9H         LINE#         18
-  C:02B9H         LINE#         20
-  C:02C2H         LINE#         21
-  C:02C5H         LINE#         22
+  C:05C2H         LINE#         7
+  C:05C2H         LINE#         8
+  C:05D5H         LINE#         10
+  C:05D5H         LINE#         11
+  C:05DFH         LINE#         12
+  C:05E2H         LINE#         13
+  C:05F5H         LINE#         14
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/28/2019  22:48:21  PAGE 3
+
+
+  C:05F5H         LINE#         16
+  C:05FDH         LINE#         17
+  C:060BH         LINE#         18
+  C:060BH         LINE#         19
+  C:0614H         LINE#         20
+  C:0617H         LINE#         21
   -------         ENDPROC       MAIN
   -------         ENDMOD        KEYBOARD_TEST
 
@@ -119,178 +136,281 @@ SYMBOL TABLE OF MODULE:  .\Objects\¼üÅÌÇý¶¯ (KEYBOARD_TEST)
   B:00B0H.6       PUBLIC        L3
   D:00A0H         PUBLIC        P2
   B:00B0H.0       PUBLIC        R1
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/25/2019  19:58:12  PAGE 3
-
-
   D:00B0H         PUBLIC        P3
   B:00B0H.1       PUBLIC        R2
   B:00B0H.2       PUBLIC        R3
   B:00B0H.3       PUBLIC        R4
-  C:0336H         PUBLIC        key_shake_eliminate
-  C:01F8H         PUBLIC        get_key
+  C:072BH         PUBLIC        key_shake_eliminate
+  C:04DAH         PUBLIC        get_key
   B:00B0H.4       PUBLIC        L1
   B:00B0H.5       PUBLIC        L2
   -------         PROC          GET_KEY
   -------         DO            
-  D:000EH         SYMBOL        row
-  D:000FH         SYMBOL        col
-  D:0010H         SYMBOL        ret
+  D:0040H         SYMBOL        row
+  D:0041H         SYMBOL        col
+  D:0042H         SYMBOL        ret
   -------         ENDDO         
-  C:01F8H         LINE#         4
-  C:01F8H         LINE#         5
-  C:01FBH         LINE#         7
-  C:01FEH         LINE#         8
-  C:0205H         LINE#         10
-  C:0208H         LINE#         12
-  C:020FH         LINE#         14
-  C:0212H         LINE#         15
-  C:021AH         LINE#         16
-  C:0222H         LINE#         17
-  C:0228H         LINE#         19
-  C:022BH         LINE#         20
-  C:0233H         LINE#         21
-  C:023BH         LINE#         22
-  C:0243H         LINE#         23
-  C:0249H         LINE#         25
-  C:0253H         LINE#         26
-  C:0261H         LINE#         27
-  C:026AH         LINE#         28
-  C:027AH         LINE#         30
-  C:0280H         LINE#         84
-  C:0280H         LINE#         88
-  C:0282H         LINE#         89
+  C:04DAH         LINE#         4
+  C:04DAH         LINE#         5
+  C:04DDH         LINE#         7
+  C:04E0H         LINE#         8
+  C:04E7H         LINE#         10
+  C:04EAH         LINE#         12
+  C:04F1H         LINE#         14
+  C:04F4H         LINE#         15
+  C:04FCH         LINE#         16
+  C:0504H         LINE#         17
+  C:050AH         LINE#         19
+  C:050DH         LINE#         20
+  C:0515H         LINE#         21
+  C:051DH         LINE#         22
+  C:0525H         LINE#         23
+  C:052BH         LINE#         25
+  C:0535H         LINE#         26
+  C:0543H         LINE#         27
+  C:054CH         LINE#         28
+  C:055CH         LINE#         30
+  C:0562H         LINE#         84
+  C:0562H         LINE#         88
+  C:0562H         LINE#         89
+  C:0564H         LINE#         90
   -------         ENDPROC       GET_KEY
   -------         PROC          KEY_SHAKE_ELIMINATE
   -------         DO            
-  D:0011H         SYMBOL        tmp
+  D:0043H         SYMBOL        tmp
   -------         ENDDO         
-  C:0336H         LINE#         91
-  C:0336H         LINE#         92
-  C:033CH         LINE#         93
-  C:0349H         LINE#         95
-  C:034CH         LINE#         96
-  C:034EH         LINE#         97
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/28/2019  22:48:21  PAGE 4
+
+
+  C:072BH         LINE#         92
+  C:072BH         LINE#         93
+  C:0731H         LINE#         94
+  C:073EH         LINE#         96
+  C:0741H         LINE#         97
+  C:0743H         LINE#         98
   -------         ENDPROC       KEY_SHAKE_ELIMINATE
   -------         ENDMOD        KEY_BOARD
+
+  -------         MODULE        ALARM
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B0H         PUBLIC        P3
+  C:06F8H         PUBLIC        _delay100us
+  C:0744H         PUBLIC        _delay1ms
+  B:00B0H.5       PUBLIC        BUZZER_PIN
+  C:0619H         PUBLIC        _buzz_by_frequency
+  C:070DH         PUBLIC        buzz
+  -------         PROC          BUZZ
+  -------         DO            
+  D:004CH         SYMBOL        i
+  -------         ENDDO         
+  C:070DH         LINE#         4
+  C:070DH         LINE#         6
+  C:071BH         LINE#         7
+  C:071DH         LINE#         8
+  C:0724H         LINE#         9
+  C:0726H         LINE#         10
+  C:072AH         LINE#         11
+  -------         ENDPROC       BUZZ
+  -------         PROC          _BUZZ_BY_FREQUENCY
+  D:0006H         SYMBOL        freq
+  -------         DO            
+  D:0045H         SYMBOL        i
+  D:0046H         SYMBOL        t
+  -------         ENDDO         
+  C:0619H         LINE#         13
+  C:0619H         LINE#         15
+  C:063BH         LINE#         16
+  C:0650H         LINE#         17
+  C:0652H         LINE#         18
+  C:0655H         LINE#         19
+  C:0657H         LINE#         20
+  C:065AH         LINE#         21
+  C:065EH         LINE#         22
+  -------         ENDPROC       _BUZZ_BY_FREQUENCY
+  -------         PROC          _DELAY1MS
+  D:0006H         SYMBOL        t0
+  -------         DO            
+  D:0006H         SYMBOL        t
+  -------         ENDDO         
+  C:0744H         LINE#         24
+  C:0744H         LINE#         25
+  C:074BH         LINE#         26
+  C:0755H         LINE#         27
+  -------         ENDPROC       _DELAY1MS
+  -------         PROC          L?0017
+  -------         ENDPROC       L?0017
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/28/2019  22:48:21  PAGE 5
+
+
+  -------         PROC          _DELAY100US
+  D:0004H         SYMBOL        t1
+  -------         DO            
+  D:0006H         SYMBOL        t
+  -------         ENDDO         
+  C:06F8H         LINE#         29
+  C:06F8H         LINE#         30
+  C:0702H         LINE#         31
+  C:070CH         LINE#         32
+  -------         ENDPROC       _DELAY100US
+  -------         ENDMOD        ALARM
 
   -------         MODULE        LED_DISPLAY
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0080H         PUBLIC        P0
   D:00A0H         PUBLIC        P2
-  C:036EH         PUBLIC        _delay
+  C:0775H         PUBLIC        _delay
   B:00A0H.0       PUBLIC        P2_0
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/25/2019  19:58:12  PAGE 4
-
-
   B:00A0H.1       PUBLIC        P2_1
   B:00A0H.2       PUBLIC        P2_2
   B:00A0H.3       PUBLIC        P2_3
   B:00A0H.4       PUBLIC        P2_4
   B:00A0H.5       PUBLIC        P2_5
-  C:02C7H         PUBLIC        led_display_scan
-  C:030AH         SYMBOL        show_table
-  C:00D3H         PUBLIC        _led_display_puts
-  C:0361H         PUBLIC        led_close_all
-  D:0014H         PUBLIC        led_show_buf
-  C:034FH         PUBLIC        led_display_clear
+  C:065FH         PUBLIC        led_display_scan
+  D:0009H         PUBLIC        show_table
+  C:0565H         PUBLIC        _led_display_puts
+  C:0768H         PUBLIC        led_close_all
+  D:0035H         PUBLIC        led_show_buf
+  C:0756H         PUBLIC        led_display_clear
   -------         PROC          LED_CLOSE_ALL
-  C:0361H         LINE#         32
-  C:0361H         LINE#         33
-  C:0363H         LINE#         34
-  C:0365H         LINE#         35
-  C:0367H         LINE#         36
-  C:0369H         LINE#         37
-  C:036BH         LINE#         38
-  C:036DH         LINE#         39
+  C:0768H         LINE#         32
+  C:0768H         LINE#         33
+  C:076AH         LINE#         34
+  C:076CH         LINE#         35
+  C:076EH         LINE#         36
+  C:0770H         LINE#         37
+  C:0772H         LINE#         38
+  C:0774H         LINE#         39
   -------         ENDPROC       LED_CLOSE_ALL
   -------         PROC          _LED_DISPLAY_PUTS
   D:0001H         SYMBOL        str
   -------         DO            
-  D:0005H         SYMBOL        i
-  D:0004H         SYMBOL        j
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
   -------         ENDDO         
-  C:00D3H         LINE#         50
-  C:00D3H         LINE#         54
-  C:00E9H         LINE#         55
-  C:00EFH         LINE#         56
-  C:00F0H         LINE#         57
-  C:00F8H         LINE#         59
-  C:00FAH         LINE#         60
-  C:00FAH         LINE#         61
-  C:0117H         LINE#         62
-  C:0139H         LINE#         63
-  C:0159H         LINE#         64
-  C:015BH         LINE#         65
-  C:015BH         LINE#         66
-  C:015EH         LINE#         67
-  C:015EH         LINE#         68
-  C:0165H         LINE#         69
-  C:0169H         LINE#         70
-  C:016BH         LINE#         71
+  C:0565H         LINE#         50
+  C:0565H         LINE#         54
+  C:0578H         LINE#         55
+  C:057EH         LINE#         56
+  C:057FH         LINE#         57
+  C:0587H         LINE#         59
+  C:0589H         LINE#         60
+  C:0589H         LINE#         61
+  C:0594H         LINE#         62
+  C:05A2H         LINE#         63
+  C:05B0H         LINE#         64
+  C:05B2H         LINE#         65
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/28/2019  22:48:21  PAGE 6
+
+
+  C:05B2H         LINE#         66
+  C:05B5H         LINE#         67
+  C:05B5H         LINE#         68
+  C:05BCH         LINE#         69
+  C:05BFH         LINE#         70
+  C:05C1H         LINE#         71
   -------         ENDPROC       _LED_DISPLAY_PUTS
   -------         PROC          LED_DISPLAY_SCAN
   -------         DO            
-  D:0013H         SYMBOL        index
+  D:0008H         SYMBOL        index
   -------         ENDDO         
-  C:02C7H         LINE#         80
-  C:02C7H         LINE#         83
-  C:02CAH         LINE#         84
-  C:02D3H         LINE#         85
-  C:02E8H         LINE#         86
-  C:02E8H         LINE#         87
-  C:02EAH         LINE#         88
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/25/2019  19:58:12  PAGE 5
-
-
-  C:02ECH         LINE#         90
-  C:02ECH         LINE#         91
-  C:02EEH         LINE#         92
-  C:02F0H         LINE#         94
-  C:02F0H         LINE#         95
-  C:02F2H         LINE#         96
-  C:02F4H         LINE#         98
-  C:02F4H         LINE#         99
-  C:02F6H         LINE#         100
-  C:02F8H         LINE#         102
-  C:02F8H         LINE#         103
-  C:02FAH         LINE#         104
-  C:02FCH         LINE#         106
-  C:02FCH         LINE#         107
-  C:02FEH         LINE#         108
-  C:02FEH         LINE#         109
-  C:02FEH         LINE#         111
-  C:0300H         LINE#         112
-  C:0309H         LINE#         114
+  C:065FH         LINE#         80
+  C:065FH         LINE#         83
+  C:0662H         LINE#         84
+  C:066BH         LINE#         85
+  C:0680H         LINE#         86
+  C:0680H         LINE#         87
+  C:0682H         LINE#         88
+  C:0684H         LINE#         90
+  C:0684H         LINE#         91
+  C:0686H         LINE#         92
+  C:0688H         LINE#         94
+  C:0688H         LINE#         95
+  C:068AH         LINE#         96
+  C:068CH         LINE#         98
+  C:068CH         LINE#         99
+  C:068EH         LINE#         100
+  C:0690H         LINE#         102
+  C:0690H         LINE#         103
+  C:0692H         LINE#         104
+  C:0694H         LINE#         106
+  C:0694H         LINE#         107
+  C:0696H         LINE#         108
+  C:0696H         LINE#         109
+  C:0696H         LINE#         111
+  C:0698H         LINE#         112
+  C:06A1H         LINE#         114
   -------         ENDPROC       LED_DISPLAY_SCAN
   -------         PROC          _DELAY
   D:0006H         SYMBOL        num
-  C:036EH         LINE#         124
-  C:036EH         LINE#         125
-  C:0378H         LINE#         126
+  C:0775H         LINE#         124
+  C:0775H         LINE#         125
+  C:077FH         LINE#         126
   -------         ENDPROC       _DELAY
   -------         PROC          LED_DISPLAY_CLEAR
-  C:034FH         LINE#         136
-  C:034FH         LINE#         137
-  C:035EH         LINE#         138
-  C:0360H         LINE#         139
+  C:0756H         LINE#         136
+  C:0756H         LINE#         137
+  C:0765H         LINE#         138
+  C:0767H         LINE#         139
   -------         ENDPROC       LED_DISPLAY_CLEAR
   -------         ENDMOD        LED_DISPLAY
 
+  -------         MODULE        ?C?FPMUL
+  C:0003H         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FPDIV
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/28/2019  22:48:21  PAGE 7
+
+
+  C:010CH         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FCAST
+  C:01B3H         PUBLIC        ?C?FCASTC
+  C:01AEH         PUBLIC        ?C?FCASTI
+  C:01A9H         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        ?C?CASTF
+  C:01E7H         PUBLIC        ?C?CASTF
+  -------         ENDMOD        ?C?CASTF
+
+  -------         MODULE        ?C?COPY
+  C:0338H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
   -------         MODULE        ?C?CLDPTR
-  C:0003H         PUBLIC        ?C?CLDPTR
+  C:035EH         PUBLIC        ?C?CLDPTR
   -------         ENDMOD        ?C?CLDPTR
 
+  -------         MODULE        ?C?IMUL
+  C:0377H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
   -------         MODULE        ?C?SIDIV
-  C:001CH         PUBLIC        ?C?SIDIV
+  C:0389H         PUBLIC        ?C?SIDIV
   -------         ENDMOD        ?C?SIDIV
 
+  -------         MODULE        ?C?LNEG
+  C:03BFH         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
   -------         MODULE        ?C?MEMSET
-  C:0052H         PUBLIC        ?C?MEMSET
+  C:03CDH         PUBLIC        ?C?MEMSET
   -------         ENDMOD        ?C?MEMSET
 
   -------         MODULE        ?C?UIDIV
-  C:007EH         PUBLIC        ?C?UIDIV
+  C:03F9H         PUBLIC        ?C?UIDIV
   -------         ENDMOD        ?C?UIDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BUZZ?ALARM
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUZZ_BY_FREQUENCY?ALARM
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY1MS?ALARM
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DELAY?LED_DISPLAY
@@ -298,8 +418,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\¼üÅÌÇý¶¯ (KEYBOARD_TEST)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?LED_DISPLAY_CLEAR?LED_DISPLAY
 
-Program Size: data=29.0 xdata=0 code=897
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/25/2019  19:58:12  PAGE 6
+Program Size: data=78.0 xdata=0 code=1925
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/28/2019  22:48:21  PAGE 8
 
 
-LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)
+LINK/LOCATE RUN COMPLETE.  5 WARNING(S),  0 ERROR(S)

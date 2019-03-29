@@ -19,25 +19,33 @@ CPU DLL:         S8051.DLL V3.122.0.0
 Dialog DLL:      DP51.DLL V2.66.0.0 
 <h2>Project:</h2>
 C:\Users\CreaQi\OneDrive\ÎÄµµ\¿Î³Ì\µ¥Æ¬»ú\uVision_Project\¼üÅÌ\¼üÅÌÇý¶¯.uvproj
-Project File Date:  03/19/2019
+Project File Date:  03/28/2019
 
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 compiling keyboard_test.c...
+keyboard_test.c(1): warning C245: unknown #pragma, line ignored
 keyboard_test.c(11): warning C206: 'get_key': missing function-prototype
 keyboard_test.c(12): warning C206: 'key_shake_eliminate': missing function-prototype
-keyboard_test.c(7): warning C280: 'tmp_key': unreferenced local variable
 compiling key_board.c...
+compiling alarm.c...
+..\·äÃùÆ÷\alarm.c(29): warning C235: parameter 1: different types
 compiling led_display.c...
 linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?BUZZ?ALARM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUZZ_BY_FREQUENCY?ALARM
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY1MS?ALARM
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DELAY?LED_DISPLAY
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?LED_DISPLAY_CLEAR?LED_DISPLAY
-Program Size: data=29.0 xdata=0 code=897
+Program Size: data=78.0 xdata=0 code=1925
 creating hex file from ".\Objects\¼üÅÌÇý¶¯"...
-".\Objects\¼üÅÌÇý¶¯" - 0 Error(s), 5 Warning(s).
-Build Time Elapsed:  00:00:01
+".\Objects\¼üÅÌÇý¶¯" - 0 Error(s), 9 Warning(s).
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   KEYBOARD_TEST                                                     03/25/2019 19:58:12 PAGE 1   
+C51 COMPILER V9.59.0.0   KEYBOARD_TEST                                                     03/28/2019 22:48:21 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE KEYBOARD_TEST
@@ -8,41 +8,40 @@ COMPILER INVOKED BY: E:\Programs\keil9\C51\BIN\C51.EXE keyboard_test.c OPTIMIZE(
 
 line level    source
 
-   1          //#include"key_board.h"
-   2          //#include"key_board_cfg.h"
-   3          #include"C:\Users\CreaQi\OneDrive\文档\课程\单片机\uVision_Project\led显示字符\led_display.h"
-   4          //#include"C:\Users\CreaQi\OneDrive\文档\课程\单片机\uVision_Project\led显示字符\led_display_cfg.h"
-   5          int count=0;
-   6          int main(){
-   7   1        char key[5],tmp_key;
-   8   1        //sbit bz = P3^5;
-   9   1        //LED_DIG1_ON();
+   1          #pragma once
+*** WARNING C245 IN LINE 1 OF keyboard_test.c: unknown #pragma, line ignored
+   2          
+   3          #include"C:\Users\CreaQi\OneDrive\文档\课程\单片机\uVision_Project\蜂鸣器\alarm.h"
+   4          #include"C:\Users\CreaQi\OneDrive\文档\课程\单片机\uVision_Project\led显示字符\led_display.h"
+   5          //#include"C:\Users\CreaQi\OneDrive\文档\课程\单片机\uVision_Project\led显示字符\led_display_cfg.h"
+   6          int count=0;
+   7          int main(){
+   8   1        char key[5]={0};
+   9   1        //led_display_puts("123");
   10   1        while(1){
   11   2          key[count]=get_key();
 *** WARNING C206 IN LINE 11 OF keyboard_test.c: 'get_key': missing function-prototype
   12   2          key_shake_eliminate();    
 *** WARNING C206 IN LINE 12 OF keyboard_test.c: 'key_shake_eliminate': missing function-prototype
   13   2          if(key[count]!=-1)
-  14   2          {
-  15   3            //key[count]==tmp_key;
+  14   2          {   
+  15   3            //led_display_puts("123");
   16   3            count++;
   17   3            count%=6;
   18   3          }
-  19   2          //P3=0XFF;
-  20   2          led_display_puts(key);
-  21   2          led_display_scan();
-  22   2        }
-  23   1      }
-*** WARNING C280 IN LINE 7 OF keyboard_test.c: 'tmp_key': unreferenced local variable
-  24          
+  19   2          led_display_puts(key);
+  20   2          led_display_scan();
+  21   2        }
+  22   1      }
+  23          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     68    ----
-   CONSTANT SIZE    =   ----    ----
+   CODE SIZE        =     87    ----
+   CONSTANT SIZE    =      5    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =      2       6
+   DATA SIZE        =      2       5
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.

@@ -26,7 +26,7 @@ char get_key(){
 		if(ret==11) return '0';
 		else if(ret==10) return -2;
 		else if(ret==12) return -3;
-		else
+		else //if(ret>0&&ret<11)
 		return ret+'0';
 		//根据ret得到数字对应的字符串
 		/*switch(ret){			
@@ -85,8 +85,9 @@ char get_key(){
 	//return -1;
 	
 	
-}return -1;
-	}
+}
+	return -1;
+}
 
 void key_shake_eliminate(){
 	int tmp = 930*3;

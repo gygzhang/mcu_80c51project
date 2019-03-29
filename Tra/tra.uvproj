@@ -46,7 +46,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>键盘驱动</OutputName>
+          <OutputName>tra</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -377,34 +377,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>keyboard_test.c</FileName>
+              <FileName>test.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\keyboard_test.c</FilePath>
-            </File>
-            <File>
-              <FileName>key_board.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\key_board.c</FilePath>
-            </File>
-            <File>
-              <FileName>key_board.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\key_board.h</FilePath>
-            </File>
-            <File>
-              <FileName>key_board_cfg.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\key_board_cfg.h</FilePath>
-            </File>
-            <File>
-              <FileName>alarm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\蜂鸣器\alarm.c</FilePath>
-            </File>
-            <File>
-              <FileName>led_display.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\led显示字符\led_display.c</FilePath>
+              <FilePath>.\test.c</FilePath>
             </File>
           </Files>
         </Group>

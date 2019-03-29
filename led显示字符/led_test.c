@@ -15,7 +15,7 @@
 #include"led_display.h"
 
 int main(){
-	char *str="3.14159";
+	char *str="EBY.583";
 	led_display_puts(str);
 	//LED_SEG_DATA(led_show_buf[0]);
 	while(1){
