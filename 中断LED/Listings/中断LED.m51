@@ -1,0 +1,285 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/04/2019  22:03:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+E:\PROGRAMS\KEIL9\C51\BIN\BL51.EXE .\Objects\led_display.obj, .\Objects\led_test.obj TO .\Objects\中断LED PRINT (.\Listi
+>> ngs\中断LED.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\led_display.obj (LED_DISPLAY)
+  .\Objects\led_test.obj (LED_TEST)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?CLDPTR)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?SIDIV)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?MEMSET)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C_INIT)
+  E:\PROGRAMS\KEIL9\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  .\Objects\中断LED (LED_DISPLAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            REG     0008H     0008H     ABSOLUTE     "REG BANK 1"
+            DATA    0010H     0033H     UNIT         ?DT?LED_DISPLAY
+            DATA    0043H     0004H     UNIT         ?DT?LED_TEST
+            DATA    0047H     0002H     UNIT         _DATA_GROUP_
+            IDATA   0049H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?CO?LED_TEST
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     00D0H     UNIT         ?C?LIB_CODE
+            CODE    00DEH     008CH     UNIT         ?C_C51STARTUP
+            CODE    016AH     005DH     UNIT         ?PR?_LED_DISPLAY_PUTS?LED_DISPLAY
+            CODE    01C7H     0043H     UNIT         ?PR?LED_DISPLAY_SCAN?LED_DISPLAY
+            CODE    020AH     003AH     UNIT         ?PR?MAIN?LED_TEST
+            CODE    0244H     0035H     UNIT         ?PR?TIMER0_ISR?LED_TEST
+            CODE    0279H     0033H     UNIT         ?C_INITSEG
+            CODE    02ACH     002AH     UNIT         ?PR?_TIMER_INIT_WITH_TIME?LED_DISPLAY
+            CODE    02D6H     0014H     UNIT         ?PR?_DELAY100MS?LED_DISPLAY
+            CODE    02EAH     0012H     UNIT         ?PR?LED_DISPLAY_CLEAR?LED_DISPLAY
+            CODE    02FCH     000DH     UNIT         ?PR?LED_CLOSE_ALL?LED_DISPLAY
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\中断LED (LED_DISPLAY)
+
+
+SEGMENT                                         DATA_GROUP 
+  +--> CALLED SEGMENT                         START    LENGTH
+-------------------------------------------------------------
+?PR?TIMER0_ISR?LED_TEST                       -----    -----
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/04/2019  22:03:04  PAGE 2
+
+
+  +--> ?PR?LED_DISPLAY_SCAN?LED_DISPLAY
+
+?PR?LED_DISPLAY_SCAN?LED_DISPLAY              -----    -----
+  +--> ?PR?LED_CLOSE_ALL?LED_DISPLAY
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                                 -----    -----
+  +--> ?PR?MAIN?LED_TEST
+  +--> ?C_INITSEG
+
+?PR?MAIN?LED_TEST                             0047H    0002H
+  +--> ?CO?LED_TEST
+  +--> ?PR?_LED_DISPLAY_PUTS?LED_DISPLAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\中断LED (LED_DISPLAY)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED_DISPLAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:02D6H         PUBLIC        _delay100ms
+  B:00A8H.7       PUBLIC        EA
+  B:00A0H.0       PUBLIC        P2_0
+  B:00A0H.1       PUBLIC        P2_1
+  B:00A0H.2       PUBLIC        P2_2
+  B:00A0H.3       PUBLIC        P2_3
+  B:00A0H.4       PUBLIC        P2_4
+  B:00A0H.5       PUBLIC        P2_5
+  C:01C7H         PUBLIC        led_display_scan
+  D:0011H         PUBLIC        show_table
+  D:0089H         PUBLIC        TMOD
+  C:016AH         PUBLIC        _led_display_puts
+  B:00A8H.1       PUBLIC        ET0
+  C:02FCH         PUBLIC        led_close_all
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  C:02ACH         PUBLIC        _timer_init_with_time
+  D:003DH         PUBLIC        led_show_buf
+  C:02EAH         PUBLIC        led_display_clear
+  -------         PROC          LED_CLOSE_ALL
+  C:02FCH         LINE#         32
+  C:02FCH         LINE#         33
+  C:02FEH         LINE#         34
+  C:0300H         LINE#         35
+  C:0302H         LINE#         36
+  C:0304H         LINE#         37
+  C:0306H         LINE#         38
+  C:0308H         LINE#         39
+  -------         ENDPROC       LED_CLOSE_ALL
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/04/2019  22:03:04  PAGE 3
+
+
+  -------         PROC          _LED_DISPLAY_PUTS
+  D:0001H         SYMBOL        str
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:016AH         LINE#         50
+  C:016AH         LINE#         54
+  C:017DH         LINE#         55
+  C:0183H         LINE#         56
+  C:0184H         LINE#         57
+  C:018CH         LINE#         59
+  C:018EH         LINE#         60
+  C:018EH         LINE#         61
+  C:0199H         LINE#         62
+  C:01A7H         LINE#         63
+  C:01B5H         LINE#         64
+  C:01B7H         LINE#         65
+  C:01B7H         LINE#         66
+  C:01BAH         LINE#         67
+  C:01BAH         LINE#         68
+  C:01C1H         LINE#         69
+  C:01C4H         LINE#         70
+  C:01C6H         LINE#         71
+  -------         ENDPROC       _LED_DISPLAY_PUTS
+  -------         PROC          LED_DISPLAY_SCAN
+  -------         DO            
+  D:0010H         SYMBOL        index
+  -------         ENDDO         
+  C:01C7H         LINE#         80
+  C:01C7H         LINE#         83
+  C:01CAH         LINE#         84
+  C:01D3H         LINE#         85
+  C:01E8H         LINE#         86
+  C:01E8H         LINE#         87
+  C:01EAH         LINE#         88
+  C:01ECH         LINE#         90
+  C:01ECH         LINE#         91
+  C:01EEH         LINE#         92
+  C:01F0H         LINE#         94
+  C:01F0H         LINE#         95
+  C:01F2H         LINE#         96
+  C:01F4H         LINE#         98
+  C:01F4H         LINE#         99
+  C:01F6H         LINE#         100
+  C:01F8H         LINE#         102
+  C:01F8H         LINE#         103
+  C:01FAH         LINE#         104
+  C:01FCH         LINE#         106
+  C:01FCH         LINE#         107
+  C:01FEH         LINE#         108
+  C:01FEH         LINE#         109
+  C:01FEH         LINE#         111
+  C:0200H         LINE#         112
+  C:0209H         LINE#         114
+  -------         ENDPROC       LED_DISPLAY_SCAN
+  -------         PROC          _DELAY100MS
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/04/2019  22:03:04  PAGE 4
+
+
+  D:0006H         SYMBOL        num
+  C:02D6H         LINE#         125
+  C:02D6H         LINE#         126
+  C:02DAH         LINE#         127
+  C:02E3H         LINE#         128
+  C:02E9H         LINE#         129
+  -------         ENDPROC       _DELAY100MS
+  -------         PROC          _TIMER_INIT_WITH_TIME
+  D:0006H         SYMBOL        us
+  -------         DO            
+  D:0002H         SYMBOL        init_val
+  -------         ENDDO         
+  C:02ACH         LINE#         131
+  C:02ACH         LINE#         133
+  C:02AFH         LINE#         134
+  C:02B1H         LINE#         135
+  C:02BAH         LINE#         136
+  C:02C4H         LINE#         137
+  C:02D1H         LINE#         138
+  C:02D3H         LINE#         139
+  C:02D5H         LINE#         140
+  -------         ENDPROC       _TIMER_INIT_WITH_TIME
+  -------         PROC          LED_DISPLAY_CLEAR
+  C:02EAH         LINE#         150
+  C:02EAH         LINE#         151
+  C:02F9H         LINE#         152
+  C:02FBH         LINE#         153
+  -------         ENDPROC       LED_DISPLAY_CLEAR
+  -------         ENDMOD        LED_DISPLAY
+
+  -------         MODULE        LED_TEST
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:0244H         PUBLIC        Timer0_ISR
+  B:00A8H.7       PUBLIC        EA
+  C:020AH         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  D:0043H         PUBLIC        time_count
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  D:0045H         PUBLIC        init_val
+  -------         PROC          TIMER0_ISR
+  C:0244H         LINE#         19
+  C:0251H         LINE#         22
+  C:0254H         LINE#         23
+  C:0261H         LINE#         24
+  C:026EH         LINE#         27
+  -------         ENDPROC       TIMER0_ISR
+  -------         PROC          MAIN
+  -------         DO            
+  D:0001H         SYMBOL        str
+  D:0047H         SYMBOL        time_count
+  -------         ENDDO         
+  C:020AH         LINE#         29
+  C:020AH         LINE#         30
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/04/2019  22:03:04  PAGE 5
+
+
+  C:0210H         LINE#         31
+  C:0216H         LINE#         32
+  C:0219H         LINE#         33
+  C:021CH         LINE#         34
+  C:021EH         LINE#         35
+  C:0224H         LINE#         36
+  C:0231H         LINE#         37
+  C:023EH         LINE#         38
+  C:0240H         LINE#         39
+  C:0242H         LINE#         41
+  C:0242H         LINE#         45
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED_TEST
+
+  -------         MODULE        ?C?CLDPTR
+  C:000EH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?SIDIV
+  C:0027H         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?MEMSET
+  C:005DH         PUBLIC        ?C?MEMSET
+  -------         ENDMOD        ?C?MEMSET
+
+  -------         MODULE        ?C?UIDIV
+  C:0089H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY100MS?LED_DISPLAY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_TIMER_INIT_WITH_TIME?LED_DISPLAY
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED_DISPLAY_CLEAR?LED_DISPLAY
+
+Program Size: data=74.0 xdata=0 code=777
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)

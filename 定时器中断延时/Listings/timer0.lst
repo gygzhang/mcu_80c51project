@@ -1,0 +1,53 @@
+C51 COMPILER V9.59.0.0   TIMER0                                                            04/04/2019 23:02:46 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE TIMER0
+OBJECT MODULE PLACED IN .\Objects\timer0.obj
+COMPILER INVOKED BY: E:\Programs\keil9\C51\BIN\C51.EXE timer0.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\List
+                    -ings\timer0.lst) TABS(2) OBJECT(.\Objects\timer0.obj)
+
+line level    source
+
+   1          #include"timer0.h"
+   2          
+   3          int t_count;
+   4          
+   5          void timer0_100us_init(){
+   6   1        TMOD|=0X01;
+   7   1        EA=1;
+   8   1        ET0=1;
+   9   1        TH0=(65536-84)/256;
+  10   1        TL0=(65536-84)%256;
+  11   1      }
+  12          
+  13          void timer0_start(){
+  14   1        TR0=1;
+  15   1      }
+  16          
+  17          void delay100us(int us100_count){
+  18   1        t_count=us100_count;  
+  19   1        while(t_count);
+  20   1      }
+  21          
+  22          void timer0_isr() interrupt 1 using 1{
+  23   1        //一定要记得重新设置，不然计时是不对的(进入这个函数意味着TH0=TL0=0)
+  24   1        TF0=0;
+  25   1        TH0=(65536-84)/256;
+  26   1        TL0=(65536-84)%256;
+  27   1        if(t_count) t_count--; 
+  28   1      }
+  29          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     55    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,4 @@
+".\Objects\timer0.obj",
+".\Objects\timer0_test.obj" 
+TO ".\Objects\定时器中断延时" 
+PRINT(".\Listings\定时器中断延时.m51") RAMSIZE(256) 

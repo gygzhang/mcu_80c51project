@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   LED_TEST                                                          04/01/2019 17:40:30 PAGE 1   
+C51 COMPILER V9.59.0.0   LED_TEST                                                          04/04/2019 22:03:04 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE LED_TEST
@@ -24,31 +24,54 @@ line level    source
   14          
   15          #include"led_display.h"
   16          
-  17          int main(){
-  18   1        char *str="EBY.583";
-  19   1        led_display_puts(str);
-  20   1        //LED_SEG_DATA(led_show_buf[0]);
-  21   1        while(1){
-  22   2          led_display_scan();
-  23   2          delay(600);
-  24   2        }
-  25   1        return 0;
-  26   1      
+  17          int time_count;
+  18          int init_val;
+  19          void Timer0_ISR(void) interrupt 1 using 1 
+  20          {
+  21   1        //P1=~P1;
+  22   1        led_display_scan();
+  23   1        TH0=init_val/256;
+  24   1        TL0=init_val%256;
+  25   1        
+  26   1        //if(time_count) time_count--;
   27   1      }
   28          
-  29          /*********************************************************************************************************
-  30            END FILE
-  31          *********************************************************************************************************/
-  32          
-*** WARNING C294 IN LINE 25 OF led_test.c: unreachable code
+  29          int main(){
+  30   1        char *str="EBY.583";
+  31   1        int time_count=10;
+  32   1        led_display_puts(str);
+  33   1        TMOD|=0x01;
+  34   1        EA = 1;
+  35   1        init_val = 65536-200;
+  36   1        TH0=init_val/256;
+  37   1        TL0=init_val%256; 
+  38   1        ET0=1;
+  39   1        TR0=1;
+  40   1        //LED_SEG_DATA(led_show_buf[0]);
+  41   1        while(1){
+  42   2          //timer_init_with_time(100);
+  43   2          //led_display_scan();
+  44   2          //delay100us(10);
+  45   2        }
+  46   1        return 0;
+  47   1      
+  48   1      }
+  49          
+  50          /*********************************************************************************************************
+  51            END FILE
+  52          *********************************************************************************************************/
+  53          
+*** WARNING C294 IN LINE 46 OF led_test.c: unreachable code
+C51 COMPILER V9.59.0.0   LED_TEST                                                          04/04/2019 22:03:04 PAGE 2   
+
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     21    ----
+   CODE SIZE        =    111    ----
    CONSTANT SIZE    =      8    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----    ----
+   DATA SIZE        =      4       2
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
